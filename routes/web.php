@@ -54,3 +54,6 @@ Route::get('mobile',function(){
 Route::get('errors',function (){
    return ResponseFactory::errorJson("hey custom message","544");
 });
+
+//Pipelines
+Route::get('structure','StructureController@index');

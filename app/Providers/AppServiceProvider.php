@@ -61,8 +61,8 @@ class AppServiceProvider extends ServiceProvider
 
 
 		//MACROS
-//		 Str::macro(function_name,callback_function)
-//        Using Macro
+        //Str::macro(function_name,callback_function)
+        //Using Macro
         Str::macro('partNumber',function($part){
             return 'INDIAN MOBILE FORMAT  '.'+91 '.substr($part,0,4).'-'.substr($part,4,4).'-'.substr($part,8,10);
         });
