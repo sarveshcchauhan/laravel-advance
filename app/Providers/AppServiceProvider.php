@@ -3,10 +3,11 @@
 namespace App\Providers;
 
 use App\Channel;
-use App\Http\View\Composers\ChannelComposer;
 use App\Billing\PaymentGateway;
+use App\PostCardSendingService;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Http\View\Composers\ChannelComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(PaymentGateway::class,function($app){
             return new PaymentGateway("inr");
+        });
+
+        $this->app->singleton('PostCard',function($app){
+            return new PostCardSendingService('us',4,6);
         });
     }
 
@@ -43,5 +48,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Option 3: Dedicated View Composer Class
         View::composer('partials.channels.*',ChannelComposer::class);
+
+
     }
 }
