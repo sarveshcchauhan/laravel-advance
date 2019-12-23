@@ -57,3 +57,10 @@ Route::get('errors',function (){
 
 //Pipelines
 Route::get('structure','StructureController@index');
+
+
+//Repository Pattern
+Route::get('customers','CustomerController@index');
+Route::get('customers/{customerId}','CustomerController@findById');
+Route::get('customers/{customerId}/update','CustomerController@update');
+Route::get('customers/{customerId}/delete','CustomerController@delete');
